@@ -8,6 +8,7 @@ This is a prompt based tool for creating an SVG logo.  It takes in 4 parameters 
 * [Contributions](#contributions)
 
 ## Demo
+[Watch Demo Video](https://www.youtube.com/watch?v=dFlNUFVUiIg)
 
 ## Instructions
 Enter "node index.js" in the command window.  Follow the prompt instructions.  Once complete and SVG will be created in the same directory as the index.js file
