@@ -1,11 +1,14 @@
 let inquirer = require('inquirer');
 let fs = require('fs');
-const { find } = require('rxjs');
+// const { find } = require('rxjs');
+const maxChar = require('inquirer-maxlength-input-prompt');
+inquirer.registerPrompt('maxChar_input', maxChar);
 
 const questions = [{
-    type: 'input',
+    type: 'maxChar_input',
     message: 'Enter text for logo (1-3 characters)',
     name: 'logo_text',
+    maxLength: 3
 },
 {
     type: 'input',
