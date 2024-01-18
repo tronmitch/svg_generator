@@ -7,6 +7,7 @@ inquirer.registerPrompt('maxChar_input', maxChar);
 
 const questions = [{
     type: 'maxChar_input',
+    // type: 'input',
     message: 'Enter text for logo (1-3 characters)',
     name: 'logo_text',
     maxLength: 3
@@ -29,7 +30,7 @@ const questions = [{
     name: 'logo_shape_color',
 },
 ]
-//Using and array replaced with class
+//Not using this Array - replaced with class
 // const shapeList = [
 //     {
 //         id: 'Circle',
@@ -44,16 +45,21 @@ const questions = [{
 //         value: `polygon points="150,10 0,160 300,160"`
 //     }
 // ]
-let x = shapes.myShapes;
-console.log(shapes);
+
 svgstring = ""
 function createSVG() {
     inquirer.prompt(questions).then((response) => {
         let svgName = `${response.logo_shape}_${response.logo_shape_color}_${response.logo_text}`
-        let shape = shapes.myShapes.find(shape => shape.id === response.logo_shape).value
+        let svgShape = response.logo_shape.toLowerCase();
+        console.log(svgShape)
+  
+        let shapesInstance = new shapes.SVGshape();
+    
+        
+        let shapeMethod = shapesInstance[svgShape]();
         svgstring += `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-        <${shape} fill="${response.logo_shape_color}" />
+        <${shapeMethod} fill="${response.logo_shape_color}" />
       
         <text x="150" y="125" font-size="60" text-anchor="middle" fill="${response.logo_text_color}">${response.logo_text}</text>
       
@@ -70,3 +76,7 @@ function init(){
 }
 
 init();
+module.exports = {
+    createSVG,
+    questions
+}

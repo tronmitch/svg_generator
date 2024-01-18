@@ -1,7 +1,13 @@
 {
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
   "dependencies": {
     "inquirer": "^8.2.4",
-    "inquirer-maxlength-input-prompt": "^1.0.2",
+    "inquirer-maxlength-input-prompt": "^1.0.2"
+  },
+  "devDependencies": {
     "jest": "^29.7.0"
   }
 }
